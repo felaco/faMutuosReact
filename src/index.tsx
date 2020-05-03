@@ -1,14 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import './index.scss';
 import * as serviceWorker from './serviceWorker';
+import DashboardPage from "./components/pages/dashboard-page/dashboardPage";
+import SideMenuLayout from "./components/layout/side-menu-layout/sideMenuLayout";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <React.StrictMode>
+        <div className='d-flex'>
+            <SideMenuLayout/>
+            <div className='flex-grow-1'>
+                <DashboardPage/>
+            </div>
+        </div>
+    </React.StrictMode>,
+    document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change

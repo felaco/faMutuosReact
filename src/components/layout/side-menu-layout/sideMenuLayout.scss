@@ -1,0 +1,10 @@
+@import "src/theme/variables";
+@import "src/theme/mixins";
+
+.side-menu-layout{
+  flex: 0.2;
+  height: 100vh;
+  color: var(--dark-background-text-color);
+  padding-left: 1rem;
+  @include theme-gradient;
+}

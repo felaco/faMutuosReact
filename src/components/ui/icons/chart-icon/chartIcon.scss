@@ -1,0 +1,6 @@
+@import "src/theme/mixins";
+
+.chart-icon{
+  @include fa-icon(20px);
+  vertical-align: bottom;
+}

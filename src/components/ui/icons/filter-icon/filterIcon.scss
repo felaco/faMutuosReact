@@ -1,0 +1,5 @@
+@import "src/theme/mixins";
+
+.filter-icon{
+  @include fa-icon;
+}

@@ -1,0 +1,5 @@
+@import "src/theme/mixins";
+
+.search-icon{
+  @include fa-icon(18px);
+}

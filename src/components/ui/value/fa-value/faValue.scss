@@ -1,0 +1,18 @@
+@import "src/theme/variables";
+
+.fa-value{
+  font-size: $normal-font-size;
+  color: var(--primary-text-color);
+
+  &.fa-value-success {
+    color: var(--success);
+  }
+
+  &.fa-value-danger {
+    color: var(--danger);
+  }
+
+  &.fa-value-bold {
+    font-weight: bold;
+  }
+}

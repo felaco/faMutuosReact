@@ -1,0 +1,21 @@
+@import "src/theme/variables";
+
+.side-menu-item{
+  font-size: $normal-font-size;
+  color: var(--dark-background-text-color-secondary);
+  margin-top: $big-padding;
+  margin-left: $normal-padding;
+
+  svg path {
+    fill: var(--dark-background-text-color-secondary) !important;
+  }
+
+  &.selected {
+    color: var(--dark-background-text-color);
+    font-weight: bold;
+
+    svg path{
+      fill: var(--dark-background-text-color) !important;
+    }
+  }
+}

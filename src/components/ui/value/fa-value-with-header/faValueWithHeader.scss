@@ -1,0 +1,13 @@
+@import "src/theme/variables";
+
+.fa-value-with-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .fa-value-header {
+    font-size: $smallest-font-size;
+    color: var(--secondary-text-color);
+    margin-bottom: $small-padding;
+  }
+}

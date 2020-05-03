@@ -1,0 +1,25 @@
+@import "src/theme/variables";
+@import "src/theme/mixins";
+
+.fund-table{
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--primary-text-color);
+
+  td{
+    padding: $normal-padding $big-padding;
+  }
+
+  tr:nth-child(odd){
+    background-color: var(--highlight-color);
+  }
+
+  th {
+    padding: $big-padding;
+  }
+}
+
+.fund-table-header {
+  @include theme-gradient;
+  color: var(--dark-background-text-color);
+}

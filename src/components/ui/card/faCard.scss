@@ -1,0 +1,20 @@
+@import "src/theme/variables";
+@import "src/theme/mixins";
+
+.fa-card {
+  background-color: var(--foreground-color);
+  border-radius: $border-radius;
+  overflow: hidden;
+  @include fa-box-shadow;
+
+  .fa-card-header {
+    @include theme-gradient;
+    color: var(--dark-background-text-color);
+    text-align: center;
+    padding: $normal-padding 0;
+  }
+
+  .fa-card-padding{
+    padding: $normal-padding $big-padding;
+  }
+}

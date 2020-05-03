@@ -1,0 +1,48 @@
+@import "~bootstrap/scss/bootstrap-grid";
+@import "src/theme/clear-theme";
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--background-color);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.justify-content-evenly {
+  justify-content: space-evenly;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.fa-container {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.resume-container-wrapper-dashboard {
+  flex: 0 0 20%;
+  padding-right: 15px;
+  margin-left: auto;
+
+  .fa-card, .fa-card-body {
+    height: 100%;
+  }
+
+  .resume-body{
+    height: 90%;
+  }
+}

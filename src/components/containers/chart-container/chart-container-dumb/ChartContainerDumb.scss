@@ -1,0 +1,19 @@
+@import "src/theme/variables";
+
+.chart-container-dumb-padding{
+  padding: 0 1rem;
+}
+
+.chart-container-dumb-title {
+  font-size: $big-font-size;
+  color: var(--primary-text-color);
+  margin-top: 0;
+  margin-bottom: $big-padding;
+}
+
+.chart-container-dumb-subtitle {
+  font-size: $small-font-size;
+  color: var(--secondary-text-color);
+  margin-bottom: $normal-padding;
+  margin-top: 0;
+}

@@ -1,0 +1,13 @@
+@import "src/theme/variables";
+
+.header-item{
+  &:first-child{
+    margin-left: $normal-padding;
+  }
+
+  margin-right: $big-padding;
+
+  &.header-item-left {
+    margin-right: auto;
+  }
+}

@@ -1,0 +1,20 @@
+.md-ripple {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+
+  .ripple-effect {
+    position: absolute;
+    pointer-events: none;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    opacity: 1;
+    background: rgba(black, 0.3);
+    transform: scale(0);
+    transition: transform, opacity 20s;
+  }
+}
