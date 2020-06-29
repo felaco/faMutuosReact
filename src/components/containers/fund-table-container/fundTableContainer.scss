@@ -8,6 +8,10 @@
 
   td{
     padding: $normal-padding $big-padding;
+
+    &.capitalize{
+      text-transform: capitalize;
+    }
   }
 
   tr:nth-child(odd){

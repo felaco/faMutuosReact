@@ -1,24 +1,30 @@
 import React from 'react';
 import './headerLayout.scss';
-import FilterIcon from "../../ui/icons/filter-icon/filterIcon";
-import MdRipple from "../../ui/buttons/md-ripple/mdRipple";
-import FaButton from "../../ui/buttons/faButton/faButton";
 import HeaderItem from "./header-item/headerItem";
 import SearchInput from "../../ui/inputs/search-input/searchInput";
+import { Avatar, Button, Tooltip } from "@material-ui/core";
+import { MdFilterList } from "react-icons/all";
 
 const HeaderLayout = () => {
     return (
         <section className='header-layout'>
             <HeaderItem alignLeft>Fondos Mutuos Chilenos más rentables</HeaderItem>
-            <HeaderItem><p>F</p></HeaderItem>
             <HeaderItem>
-                <FaButton>
-                    <FilterIcon/>
-                </FaButton>
+                <Tooltip title='Filtros'>
+                    <Button>
+                        <MdFilterList/>
+                    </Button>
+                </Tooltip>
             </HeaderItem>
 
             <HeaderItem>
-                <SearchInput/>
+                <SearchInput placeholder='Buscar Fondo'/>
+            </HeaderItem>
+
+            <HeaderItem>
+                <Avatar classes={{ root: 'header-avatar' }}>
+                    F
+                </Avatar>
             </HeaderItem>
         </section>
     );

@@ -3,3 +3,11 @@
   justify-content: flex-end;
   align-items: center;
 }
+
+.header-avatar {
+  margin-top: 0.35rem;
+  width: 30px;
+  height: 30px;
+  font-size: 0.8rem;
+  background-color: var(--primary-theme);
+}

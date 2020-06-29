@@ -15,20 +15,24 @@ const FaValue = (props: FaValueProps) => {
     const classList = ['fa-value'];
     const digits = props.showDecimals ? props.digits : 0;
 
-    let displayText = props.value.toLocaleString('en-us', { useGrouping: true, maximumFractionDigits: digits });
-    displayText = displayText.replace(/,/g, 'X');
-    displayText = displayText.replace(/\./g, ',');
-    displayText = displayText.replace(/X/g, '.');
+    let displayText = '-';
 
-    if (props.percentage) {
+    if (props.value) {
+        displayText = props.value.toLocaleString('en-us', { useGrouping: true, maximumFractionDigits: digits });
+        displayText = displayText.replace(/,/g, 'X');
+        displayText = displayText.replace(/\./g, ',');
+        displayText = displayText.replace(/X/g, '.');
+    }
+
+    if (props.percentage && props.value) {
         displayText += '%'
     }
 
-    if (props.metricText) {
+    if (props.metricText && props.value) {
         displayText += ' ' + props.metricText;
     }
 
-    if (props.displayColor && props.value !== 0) {
+    if (props.displayColor && props.value !== 0 && props.value) {
         classList.push(props.value > 0 ? 'fa-value-success' : 'fa-value-danger');
     }
 

@@ -5,16 +5,7 @@ import './fundTableContainer.scss';
 import FaSpinner from "../../ui/icons/spinner/faSpinner";
 import { CHANGE_CHART_FUND, requestGainers } from "../../../actions/FundsActions";
 import { connect } from "react-redux";
-
-interface FundEntry {
-    fundId: number;
-    fundName: string;
-    serie: string;
-    currNav: number;
-    rentability: number;
-    administratorName: string;
-    administratorShortName: string;
-}
+import { FundEntry } from '../../../types';
 
 interface FundTableContainerDispatchProps {
     dispatchRequestGainers: () => any,
@@ -39,15 +30,15 @@ class FundTableContainer extends Component<FundTableContainerProps> {
     render() {
         const rows = this.props.funds.map(entry => {
             return <tr key={entry.fundId}>
-                <td>{entry.fundName}</td>
+                <td className='capitalize'>{entry.fundName.toLowerCase()}</td>
                 <td>{entry.serie}</td>
+                <td className='text-center'>{entry.administratorShortName}</td>
                 <td className='text-center'>
                     <FaValue value={entry.currNav}/>
                 </td>
                 <td className='text-center'>
                     <FaValue value={entry.rentability * 100} percentage displayColor/>
                 </td>
-                <td className='text-center'>{entry.administratorShortName}</td>
             </tr>
         });
 
@@ -56,9 +47,9 @@ class FundTableContainer extends Component<FundTableContainerProps> {
             <tr className='fund-table-header'>
                 <th className='text-left'>Fondo</th>
                 <th className='text-left'>Serie</th>
+                <th>Administradora</th>
                 <th>Valor Cuota</th>
                 <th>Rentabilidad</th>
-                <th>Administradora</th>
             </tr>
             </thead>
             <tbody>

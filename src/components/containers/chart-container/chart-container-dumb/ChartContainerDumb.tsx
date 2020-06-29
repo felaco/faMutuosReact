@@ -1,6 +1,7 @@
 import React from 'react';
 import FaCard from "../../../ui/card/faCard";
 import './ChartContainerDumb.scss';
+import FundNavChart from "../../../charts/FundNavChart";
 
 interface ChartContainerDumbProps {
     fundType: string;
@@ -16,17 +17,17 @@ const ChartContainerDumb = (props: ChartContainerDumbProps) => {
                     <p className='chart-container-dumb-title'>{props.fundType}</p>
                     <div className='d-flex justify-content-between'>
                         <p className='chart-container-dumb-subtitle'>{props.fundName}</p>
-                        <div>
-                            <span>1Y</span>
-                            <span>6M</span>
-                            <span>3M</span>
-                            <span>1M</span>
-                        </div>
+                        {/*<div>*/}
+                        {/*    <span>1Y</span>*/}
+                        {/*    <span>6M</span>*/}
+                        {/*    <span>3M</span>*/}
+                        {/*    <span>1M</span>*/}
+                        {/*</div>*/}
                     </div>
                 </div>
 
-                <div style={{height: '200px', textAlign: 'center'}}>
-                    <p>Chart</p>
+                <div style={{height: '200px'}}>
+                    <FundNavChart />
                 </div>
             </div>
         </FaCard>

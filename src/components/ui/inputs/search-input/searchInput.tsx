@@ -11,7 +11,7 @@ interface SearchInputProps {
 const SearchInput = (props: SearchInputProps) => {
     return (
         <div className='search-input'>
-            <input onKeyPress={props.changeHandler}/>
+            <input onKeyPress={props.changeHandler} placeholder={props.placeholder}/>
             <SearchIcon/>
         </div>
     );

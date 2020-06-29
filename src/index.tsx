@@ -9,6 +9,7 @@ import { applyMiddleware, createStore } from "redux";
 import {Provider} from 'react-redux';
 import { rootReducer } from "./reducers/mainReducer/mainReducer";
 import { composeWithDevTools } from "redux-devtools-extension";
+import { StylesProvider } from '@material-ui/core';
 
 const middleware = [reduxThunk];
 
@@ -19,12 +20,14 @@ const store = createStore(rootReducer, composeWithDevTools(
 ReactDOM.render(
     <React.StrictMode>
         <Provider store={store}>
-            <div className='d-flex'>
-                <SideMenuLayout/>
-                <div className='flex-grow-1'>
-                    <DashboardPage/>
+            <StylesProvider injectFirst>
+                <div className='d-flex'>
+                    <SideMenuLayout/>
+                    <div className='flex-grow-1'>
+                        <DashboardPage/>
+                    </div>
                 </div>
-            </div>
+            </StylesProvider>
         </Provider>
     </React.StrictMode>,
     document.getElementById('root')

@@ -3,7 +3,7 @@
 }
 
 @mixin theme-gradient() {
-  background: linear-gradient(90deg, var(--primary-theme-gradient) 0%, var(--primary-theme) 100%);
+  background: linear-gradient(105deg, var(--primary-theme-gradient) 0%, var(--primary-theme) 70%);
 }
 
 @mixin fa-icon($size: 16px) {
