@@ -21,7 +21,7 @@ const ResumeContainerDumb = (props: ResumeContainerDumbProps) => {
                 <FaValueWithHeader header='Patrimonio'
                                    value={props.patrimony}
                                    digits={4}
-                                   metricText='MM'
+                                   metricText='M'
                                    bold/>
 
                 <FaValueWithHeader header='Rentabilidad'

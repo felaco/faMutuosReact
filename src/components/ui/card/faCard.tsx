@@ -4,6 +4,7 @@ import './faCard.scss';
 interface FaCardProps {
     header?: string;
     padding?: boolean;
+    classNameList?: Array<string>;
     children?: any;
 }
 
@@ -19,6 +20,9 @@ const FaCard = (props: FaCardProps) => {
             {props.header}
         </div>
     }
+
+    if (props.classNameList)
+        classListBody.push(...props.classNameList)
 
     return (
         <div className='fa-card'>
