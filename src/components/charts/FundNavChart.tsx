@@ -49,11 +49,11 @@ class FundNavChart extends Component<any> {
                          xAccessor={(d: any) => d.date}
                          xScale={scaleTime()}
                          xExtents={[lastYear, now]}
-                         margin={{ left: 50, right: 10, top: 10, bottom: 30 }}>
+                         margin={{ left: 10, right: 50, top: 10, bottom: 30 }}>
 
-                <Chart id={0} yExtents={(d: any) => d.nav}>
+                 <Chart id={0} yExtents={(d: any) => d.nav}>
                     <XAxis axisAt="bottom" orient="bottom" ticks={5}/>
-                    <YAxis axisAt="left" orient="left" ticks={4} />
+                    <YAxis axisAt="right" orient="right" ticks={4} />
                     <AreaSeries
                         yAccessor={(d: any) => d.nav}
                         fill="#a680ff"
@@ -66,8 +66,8 @@ class FundNavChart extends Component<any> {
                         orient="bottom"
                         displayFormat={timeFormat("%Y-%m-%d")} />
                     <MouseCoordinateY
-                        at="left"
-                        orient="left"
+                        at="right"
+                        orient="right"
                         displayFormat={format(".4s")} />
                 </Chart>
                 <CrossHairCursor />

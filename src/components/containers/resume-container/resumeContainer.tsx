@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import ResumeContainerDumb from "./resume-container-dumb/resumeContainerDumb";
-import { GainersService } from "../../../services/GainersService";
 import { Subscription } from "rxjs";
 import { requestFundDetail } from "../../../actions/FundsActions";
 import { connect } from "react-redux";
 import { FundEntry, FundDetail } from '../../../types';
+import { GainersService } from "../../../services/GainersService";
 
 interface ResumeContainerDispatchProps {
     requestFundDetail: (id: number) => any;

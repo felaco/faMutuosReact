@@ -1,19 +1,26 @@
-import React from 'react';
+import React, { MouseEvent } from 'react';
 import './headerLayout.scss';
 import HeaderItem from "./header-item/headerItem";
 import SearchInput from "../../ui/inputs/search-input/searchInput";
 import { Avatar, Button, Tooltip } from "@material-ui/core";
-import { MdFilterList } from "react-icons/all";
+import { GoSettings } from "react-icons/all";
 
-const HeaderLayout = () => {
+interface HeaderLayoutProps {
+    filterHandler?: (event?: MouseEvent) => void
+}
+
+const HeaderLayout = (props: HeaderLayoutProps) => {
+
+    const button = <Button onClick={props.filterHandler}>
+        <GoSettings />
+    </Button>
+
     return (
         <section className='header-layout'>
             <HeaderItem alignLeft>Fondos Mutuos Chilenos más rentables</HeaderItem>
             <HeaderItem>
                 <Tooltip title='Filtros'>
-                    <Button>
-                        <MdFilterList/>
-                    </Button>
+                    {button}
                 </Tooltip>
             </HeaderItem>
 
@@ -29,5 +36,10 @@ const HeaderLayout = () => {
         </section>
     );
 };
+
+HeaderLayout.defaultProps = {
+    filterHandler: function () {
+    }
+}
 
 export default HeaderLayout;

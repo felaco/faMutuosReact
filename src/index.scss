@@ -16,28 +16,12 @@ code {
     monospace;
 }
 
-.justify-content-evenly {
-  justify-content: space-evenly;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.text-left {
-  text-align: left;
-}
-
 .fa-container {
   padding-left: 24px;
   padding-right: 24px;
 }
 
 .resume-container-wrapper-dashboard {
-  flex: 0 0 20%;
-  padding-right: 15px;
-  margin-left: auto;
-
   .fa-card, .fa-card-body {
     height: 100%;
   }

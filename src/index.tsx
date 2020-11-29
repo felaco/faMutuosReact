@@ -10,11 +10,11 @@ import {Provider} from 'react-redux';
 import { rootReducer } from "./reducers/mainReducer/mainReducer";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { StylesProvider } from '@material-ui/core';
+import './css-utils/css-utils.scss';
 
-const middleware = [reduxThunk];
 
 const store = createStore(rootReducer, composeWithDevTools(
-    applyMiddleware(...middleware)
+    applyMiddleware(reduxThunk)
 ));
 
 ReactDOM.render(

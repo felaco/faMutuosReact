@@ -1,0 +1,168 @@
+.dayContainer {
+  display: flex;
+  color: #868686;
+  font-size: 12px;
+  width: 100%;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.borderBottomViews {
+  width: 100%;
+  height: 33px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.dayTextElement {
+  flex: 1;
+  text-align: center;
+}
+
+.dayTextToday {
+  border: 1px solid #b5b5b5;
+}
+
+.layout {
+  width: 250px;
+  height: 300px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 0.4rem;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1);
+}
+
+.datepickerWeek {
+  display: flex;
+  min-height: 35px;
+}
+
+.weeksContainer {
+  margin-top: 0.3rem;
+}
+
+@mixin round-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+  user-select: none;
+}
+
+@mixin isSelected {
+  background-color: #469fd2;
+  color: white;
+}
+
+.datepickerDay {
+  flex: 0.1428; // aprox 1/7
+   @include round-button;
+
+  &:hover:not(.selectedDay) {
+    background-color: #eaeaea;
+  }
+}
+
+.datepickerMonth {
+  flex: 1;
+  min-width: 33%;
+  height: 40px;
+  @include round-button;
+  border-radius: 10px;
+
+  &:hover:not(.selectedMonth) {
+    background-color: #eaeaea;
+  }
+
+  &.todayMonth {
+    border: 1px solid #b5b5b5;
+  }
+}
+
+.datepickerYear {
+  flex: 1;
+  min-width: 25%;
+  height: 40px;
+  @include round-button;
+  border-radius: 10px;
+
+  &:hover:not(.selectedYear) {
+    background-color: #eaeaea;
+  }
+
+  &.todayYear {
+    border: 1px solid #b5b5b5;
+  }
+}
+
+.selectedDay {
+  @include isSelected;
+}
+
+.selectedMonth {
+  @include isSelected;
+}
+
+.selectedYear {
+  @include isSelected;
+}
+
+.selectedDayAndToday {
+  border: 1px solid black;
+}
+
+.monthSelectorContainer {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5rem 0;
+}
+
+@mixin datepicker-button {
+  background-color: unset;
+  font-size: 1rem;
+  border: unset;
+  outline: none;
+  user-select: none;
+  padding: 3px 8px;
+  cursor: pointer;
+  color: #6f6f6f;
+
+  &:hover {
+    background-color: #eaeaea;
+    padding: 3px 8px;
+  }
+}
+
+.datepickerButton {
+  @include datepicker-button;
+  border-radius: 10px;
+}
+
+.datepickerRoundButton {
+  @include datepicker-button;
+  @include round-button;
+  display: inline-block;
+}
+
+.buttonDisabled {
+  color: #9f9f9f;
+  &:hover {
+    cursor: unset;
+    background-color: unset;
+  }
+}
+
+@mixin monthYearLayout {
+  justify-content: space-between;
+  margin: 1rem 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.datePickerMonthContainer {
+  @include monthYearLayout;
+}
+
+.datepickerYearContainer {
+  @include monthYearLayout;
+}
