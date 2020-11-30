@@ -1,10 +1,12 @@
-import React, { useMemo } from 'react';
+import React, { useContext, useMemo } from 'react';
 import { BaseDateAdapter } from "../../dateAdapter/BaseDateAdapter";
 import classes from "./DatepickerLayout.module.scss";
 import WeekDayRow from "./functional/WeekDayRow";
-import { DatepickerDateViewProps } from '../..';
+import { DatepickerDateViewProps, datePickerProvider } from '../..';
 import DatepickerDay from "./functional/DatepickerDay";
 import { MonthSelector } from "./functional/MonthSelector";
+import { DateContext } from "../../dateContext";
+import { DatepickerInitialViewEnum } from "../../datepickerEnums";
 
 
 export function getRolledWeekDays(dateAdapter: BaseDateAdapter): Array<string> {
@@ -58,8 +60,10 @@ export const monthToMatrix = (dateAdapter: BaseDateAdapter, year: number, month:
 }
 
 const DatepickerDateView: React.FC<DatepickerDateViewProps> = (props) => {
+    const context: datePickerProvider = useContext(DateContext);
     const weekdaysNames = getRolledWeekDays(props.dateAdapter);
     const monthMatrix = useMemo(() => monthToMatrix(props.dateAdapter, props.year, props.month), [props.dateAdapter, props.year, props.month]);
+    const monthSelectorStr = `${context.dateAdapter.getLongMonthNames()[context.month - 1]} ${context.year}`;
 
     const dayMap = (day: number | null, index: number) => {
         const key = `${day}-${index}-${props.month}`;
@@ -83,8 +87,8 @@ const DatepickerDateView: React.FC<DatepickerDateViewProps> = (props) => {
 
     return (
         <React.Fragment>
-            <MonthSelector month={props.month} year={props.year} dateAdapter={props.dateAdapter}
-                           onChangeView={props.onChangeView}
+            <MonthSelector titleString={monthSelectorStr}
+                           onChangeView={() => context.onChangeView(DatepickerInitialViewEnum.month)}
                            onAddMonth={props.onAddMonth}
                            onSubstractMonth={props.onSubstractMonth}/>
             <WeekDayRow days={weekdaysNames}/>

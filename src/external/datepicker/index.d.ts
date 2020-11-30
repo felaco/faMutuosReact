@@ -53,13 +53,11 @@ export declare interface DatepickerMonthProps {
 }
 
 export declare interface DatepickerMonthSelectorProps {
-    month: number;
-    year: number;
-    dateAdapter: BaseDateAdapter;
+    titleString: string;
+    titleDisabled?: boolean;
     onAddMonth: () => void;
     onSubstractMonth: () => void;
-    onChangeView: (view: DatepickerInitialViewEnum) => void;
-    showOnlyYear?: boolean;
+    onChangeView?: () => void;
 }
 
 export declare interface datePickerProvider {

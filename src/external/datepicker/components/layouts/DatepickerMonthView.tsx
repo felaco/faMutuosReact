@@ -13,33 +13,30 @@ export const DatepickerMonthView = (props: DatepickerMonthViewProps) => {
     const onChangeView = () => context.onChangeView(DatepickerInitialViewEnum.year);
 
     const monthsStrings = context.dateAdapter.getShortMonthNames();
+    const monthSelectorTitle = context.year.toString();
     const today = context.dateAdapter.getToday();
     const selectedDate = context.selectedDate && context.dateAdapter.getMonthYear(context.selectedDate);
     const viewYear = context.year;
 
-    const monthsComponents = (
-        monthsStrings.map((month, index) => {
-            const todayMonthYear = context.dateAdapter.getMonthYear(today);
-            const isTodayMonth = viewYear === todayMonthYear.year && todayMonthYear.month === index + 1;
-            const isSelectedMonth = viewYear === selectedDate?.year && selectedDate.month === index + 1;
-            return (
-                <DatepickerMonth key={month}
-                                 monthString={month}
-                                 onSelectMonth={() => props.onSelectMonth(index + 1)}
-                                 currSelectedMonth={context.month}
-                                 monthNumber={index}
-                                 isTodayMonth={isTodayMonth}
-                                 isSelectedMonth={isSelectedMonth}/>
-            )
-        })
-    )
+    const monthsComponents = monthsStrings.map((month, index) => {
+        const todayMonthYear = context.dateAdapter.getMonthYear(today);
+        const isTodayMonth = viewYear === todayMonthYear.year && todayMonthYear.month === index + 1;
+        const isSelectedMonth = viewYear === selectedDate?.year && selectedDate.month === index + 1;
+        return (
+            <DatepickerMonth key={month}
+                             monthString={month}
+                             onSelectMonth={() => props.onSelectMonth(index + 1)}
+                             currSelectedMonth={context.month}
+                             monthNumber={index}
+                             isTodayMonth={isTodayMonth}
+                             isSelectedMonth={isSelectedMonth}/>
+        )
+    })
+
 
     return (
         <React.Fragment>
-            <MonthSelector showOnlyYear
-                           month={context.month}
-                           year={context.year}
-                           dateAdapter={context.dateAdapter}
+            <MonthSelector titleString={monthSelectorTitle}
                            onAddMonth={onAddMonth}
                            onSubstractMonth={onSubstractMonth}
                            onChangeView={onChangeView}/>

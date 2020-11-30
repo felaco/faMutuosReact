@@ -3,6 +3,7 @@ import { datePickerProvider, DatepickerYearViewProps } from "../../index";
 import { DateContext } from "../../dateContext";
 import classes from './DatepickerLayout.module.scss';
 import classnames from 'classnames';
+import { MonthSelector } from "./functional/MonthSelector";
 
 const YEARS_PER_PAGE = 16;
 
@@ -13,8 +14,9 @@ export const DatepickerYearView = (props: DatepickerYearViewProps) => {
     const selectedYear = context.selectedDate && dateAdapter.getMonthYear(context.selectedDate).year;
 
     // año que solo se usa para el calculo que determina desde que año se comienza a mostrar en la pagina actual
-    const viewYear = selectedYear || todayYear;
+    const viewYear = context.year || selectedYear || todayYear;
     const initialYear = viewYear - (viewYear % YEARS_PER_PAGE);
+    const monthSelectorTitle = `${initialYear} - ${initialYear + YEARS_PER_PAGE - 1}`
 
     const years = [];
     for (let i = initialYear; i < initialYear + YEARS_PER_PAGE; i++) {
@@ -36,15 +38,14 @@ export const DatepickerYearView = (props: DatepickerYearViewProps) => {
         )
     }
 
-    const buttonClasses = `${classes.datepickerRoundButton} ${classes.buttonDisabled}`
-
     return (
         <React.Fragment>
-            <div className={classes.monthSelectorContainer}>
-                <div className={buttonClasses}>{initialYear} - {initialYear + YEARS_PER_PAGE - 1}</div>
-            </div>
-            <div className={classes.borderBottomViews}/>
+            <MonthSelector titleDisabled
+                           titleString={monthSelectorTitle}
+                           onAddMonth={() => context.onAddMonth(12 * YEARS_PER_PAGE)}
+                           onSubstractMonth={() => context.onSubstractMonth(-12 * YEARS_PER_PAGE)}/>
 
+            <div className={classes.borderBottomViews}/>
             <div className={classes.datepickerYearContainer}>
                 {years}
             </div>
